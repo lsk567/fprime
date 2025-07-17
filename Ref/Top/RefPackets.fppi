@@ -19,10 +19,6 @@ telemetry packets RefPackets {
     ComCcsds.commsBufferManager.CurrBuffs
     ComCcsds.commsBufferManager.HiBuffs
     #ComCcsds.tlmSend.SendLevel
-
-    Ref.rateGroup1Comp.RgMaxTime
-    Ref.rateGroup2Comp.RgMaxTime
-    Ref.rateGroup3Comp.RgMaxTime
   }
 
   packet CDHErrors id 2 group 1 {
@@ -35,10 +31,6 @@ telemetry packets RefPackets {
     ComCcsds.cmdSeq.CS_Errors
     ComCcsds.commsBufferManager.NoBuffs
     ComCcsds.commsBufferManager.EmptyBuffs
-
-    Ref.rateGroup1Comp.RgCycleSlips
-    Ref.rateGroup2Comp.RgCycleSlips
-    Ref.rateGroup3Comp.RgCycleSlips
   }
 
   packet DriveTlm id 3 group 1 {

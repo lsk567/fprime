@@ -20,6 +20,11 @@
 
 namespace Svc {
 
+  /**
+   * Start a linux timer.
+   * 
+   * @param interval An interval in milliseconds representing the period of the linux timer.
+   */
   void LinuxTimer::startTimer(FwSizeType interval) {
       int fd;
       struct itimerspec itval;
@@ -38,6 +43,7 @@ namespace Svc {
 
       while (true) {
           unsigned long long missed;
+          // read() blocks until the next timer expiration.
           int ret = static_cast<int>(read (fd, &missed, sizeof (missed)));
           if (-1 == ret) {
               Fw::Logger::log("timer read error: %s\n", strerror(errno));

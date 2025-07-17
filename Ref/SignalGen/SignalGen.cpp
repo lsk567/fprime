@@ -14,6 +14,8 @@
 #include <Ref/SignalGen/SignalGen.hpp>
 #include <cmath>
 #include <cstdlib>
+#include <thread>
+#include <chrono>
 
 // TKC - don't know why it's undefined in VxWorks
 #ifdef TGT_OS_TYPE_VXWORKS
@@ -96,6 +98,7 @@ namespace Ref {
         U32 context /*!< The call order*/
     )
     {
+        std::this_thread::sleep_for(std::chrono::milliseconds(2));  // sleeps for 2 ms
         F32 value = 0.0f;
         // This is a queued component, so it must intentionally run the dispatch of commands and queue processing on this
         // synchronous scheduled call

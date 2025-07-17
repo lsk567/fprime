@@ -24,15 +24,15 @@ using namespace Ref;
 // Instantiate a system logger that will handle Fw::Logger::log calls
 Os::Console logger;
 
-// The reference topology divides the incoming clock signal (1Hz) into sub-signals: 1Hz, 1/2Hz, and 1/4Hz and
+// The reference topology divides the incoming clock signal (1kHz) into sub-signals: 1kHz, 1kHz, and 1kHz and
 // zero offset for all the dividers
-Svc::RateGroupDriver::DividerSet rateGroupDivisorsSet{{{1, 0}, {2, 0}, {4, 0}}};
+Svc::RateGroupDriver::DividerSet rateGroupDivisorsSet{{{1, 0}, {1, 0}, {1, 0}}};
 
 // Rate groups may supply a context token to each of the attached children whose purpose is set by the project. The
 // reference topology sets each token to zero as these contexts are unused in this project.
-U32 rateGroup1Context[Svc::ActiveRateGroup::CONNECTION_COUNT_MAX] = {};
-U32 rateGroup2Context[Svc::ActiveRateGroup::CONNECTION_COUNT_MAX] = {};
-U32 rateGroup3Context[Svc::ActiveRateGroup::CONNECTION_COUNT_MAX] = {};
+U32 rateGroup1Context[Svc::ActivePhaser::CONNECTION_COUNT_MAX] = {};
+U32 rateGroup2Context[Svc::ActivePhaser::CONNECTION_COUNT_MAX] = {};
+U32 rateGroup3Context[Svc::ActivePhaser::CONNECTION_COUNT_MAX] = {};
 
 /**
  * \brief configure/setup components in project-specific way
@@ -45,10 +45,32 @@ void configureTopology() {
     // Rate group driver needs a divisor list
     rateGroupDriverComp.configure(rateGroupDivisorsSet);
 
-    // Rate groups require context arrays. Empty for Reference example.
-    rateGroup1Comp.configure(rateGroup1Context, FW_NUM_ARRAY_ELEMENTS(rateGroup1Context));
-    rateGroup2Comp.configure(rateGroup2Context, FW_NUM_ARRAY_ELEMENTS(rateGroup2Context));
-    rateGroup3Comp.configure(rateGroup3Context, FW_NUM_ARRAY_ELEMENTS(rateGroup3Context));
+    // Configure rate group cycles: each phaser cycle
+    // consists of 1000 ticks = 1 sec.
+    rateGroup1Comp.configure(1000);
+    rateGroup2Comp.configure(1000);
+    rateGroup3Comp.configure(1000);
+
+    // Register tasks
+    rateGroup1Comp.register_phased(0, 1); // Invoke port 0 with execution time bound 1.
+    rateGroup1Comp.register_phased(1, 1); // Invoke port 1 with execution time bound 1.
+    rateGroup1Comp.register_phased(2, 1); // Invoke port 2 with execution time bound 1.
+    rateGroup1Comp.register_phased(3, 1); // Invoke port 3 with execution time bound 1.
+    rateGroup1Comp.register_phased(4, 1); // Invoke port 4 with execution time bound 1.
+    rateGroup1Comp.register_phased(5, 1); // Invoke port 5 with execution time bound 1.
+
+    rateGroup2Comp.register_phased(0, 1); // Invoke port 0 with execution time bound 1.
+    rateGroup2Comp.register_phased(1, 1); // Invoke port 1 with execution time bound 1.
+    rateGroup2Comp.register_phased(2, 1); // Invoke port 2 with execution time bound 1.
+    rateGroup2Comp.register_phased(3, 1); // Invoke port 3 with execution time bound 1.
+
+    rateGroup3Comp.register_phased(0, 1); // Invoke port 0 with execution time bound 1.
+    rateGroup3Comp.register_phased(1, 1); // Invoke port 1 with execution time bound 1.
+    rateGroup3Comp.register_phased(2, 1); // Invoke port 2 with execution time bound 1.
+    rateGroup3Comp.register_phased(3, 1); // Invoke port 3 with execution time bound 1.
+    rateGroup3Comp.register_phased(4, 1); // Invoke port 4 with execution time bound 1.
+    rateGroup3Comp.register_phased(5, 1); // Invoke port 5 with execution time bound 1.
+    rateGroup3Comp.register_phased(6, 1); // Invoke port 6 with execution time bound 1.
 }
 
 // Public functions for use in main program are namespaced with deployment name Ref

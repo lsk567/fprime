@@ -18,18 +18,18 @@ module Ref {
     stack size Default.STACK_SIZE \
     priority 140
 
-  instance rateGroup1Comp: Svc.ActiveRateGroup base id 0x0200 \
-    queue size Default.QUEUE_SIZE \
+  instance rateGroup1Comp: Svc.ActivePhaser base id 0x0200 \
+    queue size 1 \
     stack size Default.STACK_SIZE \
     priority 120
 
-  instance rateGroup2Comp: Svc.ActiveRateGroup base id 0x0300 \
-    queue size Default.QUEUE_SIZE \
+  instance rateGroup2Comp: Svc.ActivePhaser base id 0x0300 \
+    queue size 1 \
     stack size Default.STACK_SIZE \
     priority 119
 
-  instance rateGroup3Comp: Svc.ActiveRateGroup base id 0x0400 \
-    queue size Default.QUEUE_SIZE \
+  instance rateGroup3Comp: Svc.ActivePhaser base id 0x0400 \
+    queue size 1 \
     stack size Default.STACK_SIZE \
     priority 118
 
