@@ -71,6 +71,7 @@ module Ref {
     # Direct graph specifiers
     # ----------------------------------------------------------------------
 
+    @ ! deadline SG1.schedIn 1 ms
     connections RateGroups {
 
       # Linux timer to drive cycle
