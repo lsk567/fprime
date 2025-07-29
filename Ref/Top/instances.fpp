@@ -22,16 +22,22 @@ module Ref {
     queue size 1 \
     stack size Default.STACK_SIZE \
     priority 120
+    @< ! period 2 ms
+    @< ! offset 0 ms
 
   instance rateGroup2Comp: Svc.ActivePhaser base id 0x0300 \
     queue size 1 \
     stack size Default.STACK_SIZE \
     priority 119
+    @< ! period 2 ms
+    @< ! offset 0 ms
 
   instance rateGroup3Comp: Svc.ActivePhaser base id 0x0400 \
     queue size 1 \
     stack size Default.STACK_SIZE \
     priority 118
+    @< ! period 2 ms
+    @< ! offset 0 ms
 
   instance pingRcvr: Ref.PingReceiver base id 0x0A00 \
     queue size Default.QUEUE_SIZE \

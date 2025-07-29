@@ -71,6 +71,23 @@ module Ref {
     # Direct graph specifiers
     # ----------------------------------------------------------------------
 
+    @ ! deadline Ref.SG1.schedIn 100 us
+    @ ! deadline Ref.SG2.schedIn 100 us
+    @ ! deadline CdhCore.tlmSend.Run 100 us
+    @ ! deadline FileHandling.fileDownlink.Run 100 us
+    @ ! deadline Ref.systemResources.run 100 us
+    @ ! deadline ComCcsds.comQueue.run 100 us
+    @ ! deadline ComCcsds.cmdSeq.schedIn 100 us
+    @ ! deadline Ref.sendBuffComp.SchedIn 100 us
+    @ ! deadline Ref.SG3.schedIn 100 us
+    @ ! deadline Ref.SG4.schedIn 100 us
+    @ ! deadline CdhCore.$health.Run 100 us
+    @ ! deadline Ref.SG5.schedIn 100 us
+    @ ! deadline Ref.blockDrv.Sched 100 us
+    @ ! deadline ComCcsds.commsBufferManager.schedIn 100 us
+    @ ! deadline DataProducts.dpBufferManager.schedIn 100 us
+    @ ! deadline DataProducts.dpWriter.schedIn 100 us
+    @ ! deadline DataProducts.dpMgr.schedIn 100 us
     connections RateGroups {
 
       # Linux timer to drive cycle
