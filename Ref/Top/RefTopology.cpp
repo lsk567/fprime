@@ -26,13 +26,13 @@ Os::Console logger;
 
 // The reference topology divides the incoming clock signal (1Hz) into sub-signals: 1Hz, 1/2Hz, and 1/4Hz and
 // zero offset for all the dividers
-Svc::RateGroupDriver::DividerSet rateGroupDivisorsSet{{{1, 0}, {2, 0}, {4, 0}}};
+Svc::RateGroupDriver::DividerSet rateGroupDivisorsSet{{{1, 0}, {1, 0}, {1, 0}}};
 
 // Rate groups may supply a context token to each of the attached children whose purpose is set by the project. The
 // reference topology sets each token to zero as these contexts are unused in this project.
-U32 rateGroup1Context[Svc::ActiveRateGroup::CONNECTION_COUNT_MAX] = {};
-U32 rateGroup2Context[Svc::ActiveRateGroup::CONNECTION_COUNT_MAX] = {};
-U32 rateGroup3Context[Svc::ActiveRateGroup::CONNECTION_COUNT_MAX] = {};
+U32 rateGroup1Context[Svc::ActivePhaser::CONNECTION_COUNT_MAX] = {};
+U32 rateGroup2Context[Svc::ActivePhaser::CONNECTION_COUNT_MAX] = {};
+U32 rateGroup3Context[Svc::ActivePhaser::CONNECTION_COUNT_MAX] = {};
 
 /**
  * \brief configure/setup components in project-specific way

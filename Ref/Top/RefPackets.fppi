@@ -43,8 +43,8 @@ telemetry packets RefPackets {
     Ref.rateGroup2Comp.RgCycleSlips
     Ref.rateGroup3Comp.RgCycleSlips
 
-  #   Ref.phaser0.RgCycleSlips
-  #   Ref.phaser1.RgCycleSlips
+    # Ref.phaser0.RgCycleSlips
+    # Ref.phaser1.RgCycleSlips
   }
 
   packet DriveTlm id 3 group 1 {

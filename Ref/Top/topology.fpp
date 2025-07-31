@@ -120,6 +120,8 @@ module Ref {
       rateGroup3Comp.RateGroupMemberOut[6] -> DataProducts.dpMgr.schedIn
     }
 
+    # include "phaser_connections.fppi"
+
     connections Ref {
       sendBuffComp.Data -> blockDrv.BufferIn
       blockDrv.BufferOut -> recvBuffComp.Data
