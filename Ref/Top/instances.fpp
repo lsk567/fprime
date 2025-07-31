@@ -36,7 +36,7 @@ module Ref {
     queue size Default.QUEUE_SIZE \
     stack size Default.STACK_SIZE \
     priority 118
-    @< ! period 1000 ms
+    @< ! period 2000 ms
     @< ! offset 0 ms
 
   # include "phaser_instances.fppi"
