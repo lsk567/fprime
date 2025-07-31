@@ -77,12 +77,12 @@ module Ref {
   instance posixTime: Svc.PosixTime base id 0x4300
 
   instance rateGroupDriverComp: Svc.RateGroupDriver base id 0x4400
-  @< ! period 7 ms
 
   instance recvBuffComp: Ref.RecvBuff base id 0x4500
 
   instance systemResources: Svc.SystemResources base id 0x4600
 
   instance linuxTimer: Svc.LinuxTimer base id 0x5000
+    @< ! period 1 ms # FIXME: This annotation does not work yet.
 
 }
