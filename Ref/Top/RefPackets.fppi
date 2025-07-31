@@ -23,6 +23,9 @@ telemetry packets RefPackets {
     Ref.rateGroup1Comp.RgMaxTime
     Ref.rateGroup2Comp.RgMaxTime
     Ref.rateGroup3Comp.RgMaxTime
+
+    # Ref.phaser0.RgMaxTime
+    # Ref.phaser1.RgMaxTime
   }
 
   packet CDHErrors id 2 group 1 {
@@ -39,6 +42,9 @@ telemetry packets RefPackets {
     Ref.rateGroup1Comp.RgCycleSlips
     Ref.rateGroup2Comp.RgCycleSlips
     Ref.rateGroup3Comp.RgCycleSlips
+
+  #   Ref.phaser0.RgCycleSlips
+  #   Ref.phaser1.RgCycleSlips
   }
 
   packet DriveTlm id 3 group 1 {
